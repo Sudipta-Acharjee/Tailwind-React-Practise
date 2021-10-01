@@ -1,5 +1,6 @@
 import React from 'react'
-import article from './articleContent';
+import article from './article-content';
+import { Link } from "react-router-dom"
 
 const ArticleList = () => {
     return (
@@ -8,7 +9,11 @@ const ArticleList = () => {
             <div className="container py-4 mx-auto">
                 <div className="flex flex-wrap m-4">
                     {article.map((article, index) => (<div key={index} className="p-4 md:w-1/2">
-                        <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden"></div>
+                        <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                            <Link to={`/article/${article.name}`}>
+                                <img className="lg:h-48 md:h-36 w-full object-cover object-center" src={article.thumbnail} alt='blog'></img>
+                            </Link>
+                        </div>
                     </div>))}
                 </div>
             </div>
